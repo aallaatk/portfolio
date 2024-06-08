@@ -1,0 +1,140 @@
+//color varibales
+$main-bg-color:#070d1b;
+$headers-color:#0a101e;
+$fadedwhite-color:rgba(255, 255, 255, 0.287);
+$secondary-color:#fdfeff;
+$third-color:#fec544;
+#root{
+    background-color: $main-bg-color !important;
+}
+#nav{
+    background-color: $headers-color;
+    color: white;
+}
+#round{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid $fadedwhite-color;
+    color: $secondary-color !important;
+    &:hover{
+        border-color: $third-color;
+    }
+}
+#submit{
+    background: $third-color;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 150px;
+}
+#contact-info{
+    h3{
+        color: white;
+    }
+    p{
+        color:rgba(255, 255, 255, 0.622);
+    }
+}
+footer{
+    font-size: 16px;
+    background-color: $headers-color;
+    color: $secondary-color;
+   
+}
+/* More specific selector to override Bootstrap styles */
+input,textarea{
+    padding: 15px !important;
+    border-color: 1px solid rgba(255, 255, 255, 0.287) !important;
+    background-color: #101624 !important;
+    &::placeholder {
+        color: rgba(255, 255, 255, 0.287) !important;
+       
+      }
+}
+.form-control.input-focus:focus {
+    outline: 3px solid $third-color !important;
+    box-shadow: 0 0 0 2px rgba(255, 255, 0, 0.5) !important;
+    border: none !important;
+    color:white;
+  }
+  /* title  componant styling*/
+  #title{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   h3 {
+   position: relative;
+    color: $third-color;
+    font-size: 1.75em;
+    padding: 0 20px;
+     // Adjust padding to control the spacing around the text
+     &::after {
+        content: '';
+        position: absolute;
+        bottom: -15px; // Adjust to position the border right below the text
+        left: 0;
+        width: 100%;
+        height: 3px; // Border thickness
+        background: linear-gradient(to right, $fadedwhite-color 33%, $third-color 33%, $third-color 66%, $fadedwhite-color 66%);
+      }
+  }
+  }
+  /* services section */
+#service-item{
+    background-color: #101624;
+    border: 1px solid $fadedwhite-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+h4{
+    color:white;
+    &:hover{
+        color: $third-color;
+    }
+}
+p{
+    font-size: 1.25em;
+   color: $fadedwhite-color;
+}
+#service-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+   
+    color: $secondary-color !important;
+    &:hover{
+        border-color: $third-color;
+    }
+}
+}
+/* blog section */
+#blog-item {
+    color: white;
+    
+    span{
+        color: $third-color;
+    }
+ h4{
+    color: white;
+    &:hover{
+        color: $third-color;
+    }
+ }
+}
+
+
+
+
+
+
+
