@@ -6,7 +6,7 @@ interface ServiceItemProps {
 }
 function ServiceItem({ title, para,img }: Readonly<ServiceItemProps>) {
   return (
-    <div className="container" id="service-item"> 
+    <div className="container text-center" id="service-item"> 
     <div id ="service-img">
         <img src={img} alt="service" style={{width:'100%',height:'100%' ,objectFit:'fill'}} />
         </div> 

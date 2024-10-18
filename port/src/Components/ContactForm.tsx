@@ -1,6 +1,6 @@
 import { useState } from "react";
 import emailjs from 'emailjs-com';
-
+import 'animate.css/animate.min.css';
 interface FormData {
   name: string;
   email: string;
@@ -38,7 +38,7 @@ function ContactForm() {
     };
 
     try {
-      const response = await emailjs.send('service_h3u77hp', 'template_w59pzgk', formDataToSend, 'CxNbbreN-XhMv4xrI');
+      const response = await emailjs.send('service_h3u77hp', 'template_9shzm8o', formDataToSend, 'CxNbbreN-XhMv4xrI');
 
       console.log('Email sent!', response);
 
@@ -56,7 +56,7 @@ function ContactForm() {
   };
 
   return (
-    <div className="container ">
+    <div className="container mt-3 animate__animated animate__fadeInLeft">
       {showAlert && (
         <div className="alert alert-success alert-dismissible fade show" role="alert">
           Message recieved! Thank you.

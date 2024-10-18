@@ -8,7 +8,7 @@ import ServiceItem from "../Components/ServiceItem"; // Ensure you have this imp
 const servicesData = [
   { title: 'Responsive Design', para: 'Creating responsive web designs.', img: responsive },
   { title: 'Web Development', para: 'Building modern web applications.', img: web },
-  { title: 'App Development', para: 'Developing mobile applications.', img: app }
+  { title: 'Mobile Development', para: 'Developing mobile applications.', img: app }
 ];
 
 function Services() {

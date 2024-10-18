@@ -4,13 +4,67 @@ $headers-color:#0a101e;
 $fadedwhite-color:rgba(255, 255, 255, 0.287);
 $secondary-color:#fdfeff;
 $third-color:#fec544;
+$fourth-color:#ffffff92;
+body{
+  font-family: "Open Sans", sans-serif;
+}
 #root{
     background-color: $main-bg-color !important;
 }
-#nav{
-    background-color: $headers-color;
-    color: white;
+/* water effect */
+/* WaterEffect.css */
+.water-effect {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  background-color: #3399FF; /* Blue color for water */
+  overflow: hidden;
 }
+
+.ripple {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6); /* Transparent white color */
+  animation: ripple-animation 2s linear infinite;
+}
+
+@keyframes ripple-animation {
+  from {
+      transform: scale(0);
+      opacity: 0.6;
+  }
+  to {
+      transform: scale(2);
+      opacity: 0;
+  }
+}
+
+/* styles.css */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: transparent; /* Initial transparent background */
+  transition: background-color 0.3s ease; /* Smooth transition for background color change */
+}
+  
+  .navbar.scrolled {
+    background-color: $headers-color ; /* Solid background color when scrolled */
+  }
+  
+/* styles.css */
+.nav-link {
+    color: white !important;
+    font-size: 1em !important;  
+  }
+  /* styles.css */
+.active-link {
+    color: #fec544 !important;
+  }
+  
 #round{
     display: flex;
     justify-content: center;
@@ -24,6 +78,72 @@ $third-color:#fec544;
         border-color: $third-color;
     }
 }
+//main section
+#main{
+  z-index: 1;
+  height: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  p{
+    font-size: 60px;
+    color: white;
+    font-weight: bold;
+  }
+  span{
+    color: $third-color;
+  }
+}
+
+
+@keyframes move-water {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
+}
+
+
+/* resume section styling */
+
+
+/* about me section styling */
+#about-me{
+    padding: 0 50px;
+    color: rgba(255, 255, 255, 0.626);
+h2{
+    color: white;
+}
+h3{
+    color: $third-color;
+}
+p{
+    font-size: 1.1em;
+
+}
+.row {
+    display: flex;
+        justify-content: space-between;
+    p {
+        padding-right: 10px; 
+     
+    }
+}
+.info-item {
+  display: flex;
+  font-size: 1.2em;
+}
+
+.info-item span:first-child {
+  width: 100px; /* Adjust this width as needed */
+  text-align: left;
+  margin-right: 30px; /* Adjust the space between label and colon */
+}
+
+.info-item span:last-child {
+  flex-grow: 1;
+}
+}
+/* buttons styling */
 #submit{
     background: $third-color;
     border-radius: 25px;
@@ -32,6 +152,42 @@ $third-color:#fec544;
     padding: 10px;
     width: 150px;
 }
+
+
+#res {
+  padding: 20px;
+  background-color: #2b2b2b;
+  color: #fff;
+}
+
+h2 {
+  color: #fec544;
+}
+
+.experience, .education {
+  margin-top: 20px;
+}
+
+.experience-item, .education-item {
+  margin-bottom: 20px;
+}
+
+.experience-item h3, .education-item h3 {
+  color: #fec544;
+}
+
+p {
+  margin: 5px 0;
+}
+
+
+
+
+
+
+
+
+
 #contact-info{
     h3{
         color: white;
@@ -40,16 +196,11 @@ $third-color:#fec544;
         color:rgba(255, 255, 255, 0.622);
     }
 }
-footer{
-    font-size: 16px;
-    background-color: $headers-color;
-    color: $secondary-color;
-   
-}
+
 /* More specific selector to override Bootstrap styles */
 input,textarea{
     padding: 15px !important;
-    border-color: 1px solid rgba(255, 255, 255, 0.287) !important;
+    border-color: 1px solid rgba(255, 255, 255, 0.098) !important;
     background-color: #101624 !important;
     &::placeholder {
         color: rgba(255, 255, 255, 0.287) !important;
@@ -88,12 +239,15 @@ input,textarea{
   /* services section */
 #service-item{
     background-color: #101624;
-    border: 1px solid $fadedwhite-color;
+    border: 1px solid rgba(255, 255, 255, 0.172);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 300px;
+    height: 350px;
+    &:hover{
+        color: $third-color;
+    }
 h4{
     color:white;
     &:hover{
@@ -104,6 +258,10 @@ p{
     font-size: 1.25em;
    color: $fadedwhite-color;
 }
+#service-item:hover p, 
+#service-item:hover span {
+    color: $third-color;
+}
 #service-img{
     display: flex;
     justify-content: center;
@@ -112,15 +270,183 @@ p{
     height: 80px;
    
     color: $secondary-color !important;
+
+}
+}
+/* real skills section */
+.skill-item {
+  margin-bottom: 20px;
+}
+
+.skill-title {
+  font-weight: bold;
+  color: #ffffff; /* White color for the title */
+}
+
+.skill-value {
+  font-weight: bold;
+  color: $third-color; /* Yellow color for the value */
+}
+
+.progress {
+  background-color:#353840 !important; /* Dark background color for the progress bar container */
+  height: 2px !important;
+  border-radius: 5px;
+  overflow: hidden;
+  color: $third-color !important;
+}
+
+.custom-progress-bar {
+  background-color: $third-color !important; /* Yellow color for the progress bar */
+  height: 100%;
+}
+
+#skills-data{
+  h2{
+    font-size: 2.5em;
+    color: white;
+  }
+  p{
+    color: $fadedwhite-color;
+  }
+}
+
+.technology-item-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  position: relative;
+}
+
+.technology-border {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+  border: 1px solid $fadedwhite-color;
+  border-radius: 50%;
+  padding: 20px;
+  transition: border-color 0.3s ease;
+
+  &:hover {
+    border-color: $third-color;
+  }
+
+  &:hover .technology-image {
+    transform: scale(1.3);
+  }
+}
+
+.technology-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.technology-name {
+  cursor: pointer;
+  font-weight: bold;
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: $headers-color;
+  color: white !important;
+  padding: 5px 10px;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.3s ease, bottom 0.3s ease;
+  white-space: nowrap;
+  a{
     &:hover{
-        border-color: $third-color;
+      color: $third-color !important;
     }
+  }
 }
+
+.technology-border:hover .technology-name {
+  opacity: 1;
+  bottom: 10px; /* Move up on hover */
+ 
 }
+
+
+/* SKILLS SECTION */
+.skill-item-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+  .skill-border {
+    animation: fillBorder 2s ease-in-out forwards;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    border-image: linear-gradient(to right, #4caf50 0%, #4caf50 0%, #dcdcdc 0%, #dcdcdc 100%);
+    border-image-slice: 1;
+  
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+
+      z-index: 1;
+    }
+  }
+  
+  .skill-image {
+    width: 120px;
+    height: 100px;
+    
+    z-index: 3;
+  }
+  
+  // Generate classes for different percentages
+  @for $i from 0 through 100 {
+    .percentage-#{$i} {
+      border-image: linear-gradient(to right, #4caf50 0%, #4caf50 #{$i}, #dcdcdc #{$i}, #dcdcdc 100%);
+      border-image-slice: 1;
+    }
+  }
+  
+  @keyframes fillBorder {
+    0% {
+      border-image-source: linear-gradient(to right, #4caf50 0%, #4caf50 0%, #dcdcdc 0%, #dcdcdc 100%);
+    }
+    100% {
+      border-image-source: linear-gradient(to right, #4caf50 0%, #4caf50 100%, #dcdcdc 100%, #dcdcdc 100%);
+    }
+  }
+  
+  
 /* blog section */
 #blog-item {
+  
     color: white;
-    
+   .row {
+    overflow: hidden;
+    img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+      transform-origin: center;
+      &:hover {
+          transform: scale(1.1);
+      }
+  }
+}
     span{
         color: $third-color;
     }
@@ -130,9 +456,157 @@ p{
         color: $third-color;
     }
  }
+ p{
+  color:rgba(255, 255, 255, 0.75) ;
+ }
 }
 
 
+//projects section
+.project-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.project-item .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  p{
+color: $fadedwhite-color;
+  }
+}
+
+.project-item:hover .overlay {
+  opacity: 1;
+}
+.testimonial-container {
+ 
+  .testimonial-quote {
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.172);
+    color: rgba(255, 255, 255, 0.765);
+    background-color: #101624;
+    &::after {
+      position: absolute;
+      width: 35px; /* Reduced width */
+      height: 35px; /* Reduced height */
+      border-right: 2px solid rgba(255, 255, 255, 0.172);
+      border-bottom: 2px solid rgba(255, 255, 255, 0.172);
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%) rotate(45deg); /* Adjust transform */
+      content: "";
+      background-color: #101624;
+   
+    }
+    &:hover,
+    &:hover::after { 
+      border-color: $third-color; 
+      
+    }
+    &:hover .person-name { /* Change color of h5 when parent .testimonial-quote is hovered */
+      color: $third-color;
+    }
+    .quote-text {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.72);
+    }
+  }
+
+  .testimonial-person {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    text-align: center;
+    .person-img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .person-name {
+      margin-top: 1rem;
+      color: rgba(255, 255, 255, 0.765);
+    }
+    .person-title {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+//footer
+footer{
+    height: 80px;
+    font-size: 16px;
+    background-color: $headers-color;
+    color: $secondary-color;
+   
+}
+.test {
+  position: relative;
+  height: fit-content; /* Establishes a positioning context for the overlay */
+  background: url('./src/assets/bgg.jpg') center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* This property is fine as-is */
+  overflow: hidden; /* Ensure no overflow from the overlay */
+}
+
+.test::before {
+  content: ''; /* Required for pseudo-elements */
+  position: absolute; /* Absolutely position the overlay */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(7, 13, 27, 0.7); /* rgba color with opacity for the overlay */
+  pointer-events: none; /* Ensures the overlay does not interfere with interactions */
+  z-index: 1; /* Ensures the overlay is above the background image but below other content */
+}
+
+.test > * {
+  position: relative; /* Ensures child elements are positioned above the overlay */
+  z-index: 2; /* Places child elements above the overlay */
+}
+.ani-container {
+  position: relative;
+  display: inline-block;
+}
+
+.static-text {
+  display: inline-block;
+  font-size: 1.5rem; /* Adjust as needed */
+  font-weight: bold;
+}
+
+.ani-text {
+  display: inline-block;
+  margin-left: 8px; /* Add space between static and animated text */
+  opacity: 0;
+  transition: opacity 0.5s ease; /* Smooth transition for fade */
+}
+
+.ani-text.show {
+  opacity: 1; /* Fade in when showing */
+}
+
+.ani-text.fade-out {
+  opacity: 0; /* Fade out */
+}
 
 
 

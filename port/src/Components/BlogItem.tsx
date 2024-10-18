@@ -8,7 +8,7 @@ function BlogItem({img,creator,date,title}: Readonly<BlogItemProps>) {
   return (
     <div className="container" id="blog-item">
         <div className="row">
-            <img src={img} alt="blog" style={{height:'200px',width:'100%', objectFit:'cover'}} />
+            <img src={img} alt="blog"  />
         </div>
         <div className="row mt-3">
             <p>By : <span>{creator}</span>  | <span>{date}</span></p>
