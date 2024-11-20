@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Open Sans", sans-serif;
 }
@@ -90,14 +94,6 @@ body {
   color: #fec544;
 }
 
-@keyframes move-water {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 100% 0;
-  }
-}
 /* resume section styling */
 /* about me section styling */
 #about-me {
@@ -112,13 +108,6 @@ body {
 }
 #about-me p {
   font-size: 1.1em;
-}
-#about-me .row {
-  display: flex;
-  justify-content: space-between;
-}
-#about-me .row p {
-  padding-right: 10px;
 }
 #about-me .info-item {
   display: flex;
@@ -141,6 +130,10 @@ body {
   outline: none;
   padding: 10px;
   width: 150px;
+}
+#submit:hover {
+  background-color: #fdfeff;
+  color: #fec544 !important;
 }
 
 #res {
@@ -1030,6 +1023,34 @@ input::placeholder, textarea::placeholder {
   color: rgba(255, 255, 255, 0.75);
 }
 
+.custom-prev, .custom-next {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.custom-prev:hover, .custom-next:hover {
+  color: #fec544;
+}
+
+.custom-prev {
+  left: -35px; /* Adjust position to the left */
+}
+
+.custom-next {
+  right: -35px; /* Adjust position to the right */
+}
+
+.custom-prev:hover, .custom-next:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+}
+
 .project-item {
   position: relative;
   overflow: hidden;
@@ -1119,9 +1140,8 @@ footer {
 
 .test {
   position: relative;
-  height: -moz-fit-content;
-  height: fit-content; /* Establishes a positioning context for the overlay */
-  background: url("./src/assets/bgg.jpg") center fixed;
+  /* Establishes a positioning context for the overlay */
+  background: url("./src/assets/bg.jpg") center fixed;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: scroll; /* This property is fine as-is */
@@ -1145,28 +1165,160 @@ footer {
   z-index: 2; /* Places child elements above the overlay */
 }
 
-.ani-container {
-  position: relative;
-  display: inline-block;
+.intro-text {
+  font-size: 1.5rem;
+  text-align: center;
+  line-height: 1.2;
+}
+@media (max-width: 992px) {
+  .intro-text {
+    font-size: 1.25rem;
+  }
+}
+@media (max-width: 768px) {
+  .intro-text {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 576px) {
+  .intro-text {
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 400px) {
+  .intro-text {
+    font-size: 0.8rem;
+  }
 }
 
 .static-text {
-  display: inline-block;
-  font-size: 1.5rem; /* Adjust as needed */
   font-weight: bold;
+  color: #fec544;
+  margin-left: 0.5rem;
+}
+
+.ani-container {
+  display: inline-block;
+  margin-left: 0.5rem;
+  position: relative;
 }
 
 .ani-text {
+  font-weight: 600;
+  color: #fec544;
   display: inline-block;
-  margin-left: 8px; /* Add space between static and animated text */
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+@media (max-width: 768px) {
+  .intro-text {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+  }
+  .ani-text {
+    font-size: clamp(1.2rem, 5vw, 2rem);
+  }
+}
+/* social links styling  */
+#round-social {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.287);
+  position: relative;
+}
+#round-social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-size: 24px;
+  gap: 10px;
+  transition: color 0.3s ease-in-out;
+  white-space: nowrap;
+  text-decoration: none;
+}
+#round-social a .social-name {
   opacity: 0;
-  transition: opacity 0.5s ease; /* Smooth transition for fade */
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width 0.3s ease, opacity 0.3s ease;
+}
+#round-social:hover {
+  width: 150px;
+  border-radius: 50px;
+}
+#round-social:hover a {
+  color: yellow;
+}
+#round-social:hover a .social-name {
+  opacity: 1;
+  max-width: 100px;
 }
 
-.ani-text.show {
-  opacity: 1; /* Fade in when showing */
+/* resume bar styling */
+.education-bar {
+  position: relative;
+  margin-left: 20px;
+  border-left: 2px solid rgba(255, 255, 255, 0.287);
+  height: 100%;
+  padding-left: 10px;
+}
+.education-bar .education-item {
+  position: relative;
+  padding-left: 30px;
+}
+.education-bar .education-item:hover .dot {
+  background-color: #fec544;
+}
+.education-bar .dot {
+  position: absolute;
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+.education-bar .dot.hovered {
+  background-color: #fec544;
 }
 
-.ani-text.fade-out {
-  opacity: 0; /* Fade out */
+.info-value::before {
+  content: ":";
+  margin-right: 5px; /* Adjust spacing as needed */
+}
+
+.info-title {
+  padding: 0;
+  margin: 2px !important;
+}
+
+.custom-arrow {
+  display: none; /* Hide arrows by default */
+}
+
+@media (min-width: 576px) {
+  .custom-arrow {
+    display: block; /* Show arrows on larger screens */
+  }
 }/*# sourceMappingURL=index.css.map */

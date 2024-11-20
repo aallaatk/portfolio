@@ -26,7 +26,7 @@ const testimonialsData = [
 function Testimonials() {
   return (
     <div className="container mt-5">
-        <div className="row">
+        <div className="col-12">
             <Title title={"TESTIMONIALS"} />
         </div>
       <div className="row mt-5">

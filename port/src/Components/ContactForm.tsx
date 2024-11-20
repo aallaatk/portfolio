@@ -114,7 +114,7 @@ function ContactForm() {
             onChange={handleChange}
             required
           />
-          <button type="submit" className="btn p-2 mt-4" id="submit">Send Message</button>
+          <button type="submit" className="btn p-2 mt-4" id="submit">Send Message<i className="fa-solid fa-paper-plane ms-2"></i></button>
         </div>
         
       </form>

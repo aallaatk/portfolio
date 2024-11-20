@@ -5,7 +5,7 @@ import Title from "../Components/Title";
 function Contact() {
   return (
     <section className="container mt-5">
-      <div className="row">
+      <div className="container">
         <Title title={"CONTACT ME"} />
       </div>
       <div className="row mt-5">

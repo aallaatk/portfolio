@@ -31,10 +31,10 @@ function Technologies() {
 
     return (
         <div className="container mt-5">
-            <div className="row mt-5">
+            <div className="container mt-5">
                 <Title title={"TECHNOLOGIES"} />
             </div>
-            <div className="row mt-5">
+            <div className="row mt-5 d-flex justify-content-center">
                 {TechnologiesData.map((technology, index) => (
                     <div className="col-6 col-sm-6 col-md-2 mt-5" key={index}>
                         <TechnologieItem 

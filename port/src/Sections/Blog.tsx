@@ -16,57 +16,24 @@ interface BlogDataType {
 }
 
 const BlogData: BlogDataType[] = [
-  { creator: 'Admin', title: 'What are the the highest paid it jobs currently?', date: '22-06-2024', img: blog1 },
+  { creator: 'Admin', title: 'What are the highest paid IT jobs currently?', date: '22-06-2024', img: blog1 },
   { creator: 'Admin', title: 'What are the basics of web development?', date: '25-06-2024', img: blog2 },
-  { creator: 'Admin', title: 'Does web developing require prior programming langauges knowledge?', date: '28-06-2024', img: blog3 },
+  { creator: 'Admin', title: 'Does web developing require prior programming languages knowledge?', date: '28-06-2024', img: blog3 },
 ];
 
-interface CustomArrowProps {
-  className?: string;
-  onClick?: () => void;
-}
-
-const CustomPrevArrow: React.FC<CustomArrowProps> = ({ className, onClick }) => {
+const PrevArrow = ({ onClick }: { onClick?: () => void }) => {
   return (
-    <div
-      className={className}
-      onClick={onClick}
-      style={{
-        position: 'absolute',
-        top: '35%',
-        left: '-30px', // Adjust the distance from the edge
-        zIndex: 1,
-        width: '50px', // Increase arrow width
-        height: '50px', // Increase arrow height
-        transform: 'translateY(-50%)',
-        fontSize: '24px', // Font size for text (optional)
-        textAlign: 'center', // Center text horizontally (optional)
-      }}
-    >
-      {'<'}
-    </div>
+    <button type="button" onClick={onClick} className="custom-prev">
+      <i className="fas fa-chevron-left"></i>
+    </button>
   );
 };
 
-const CustomNextArrow: React.FC<CustomArrowProps> = ({ className, onClick }) => {
+const NextArrow = ({ onClick }: { onClick?: () => void }) => {
   return (
-    <div
-      className={className}
-      onClick={onClick}
-      style={{
-        position: 'absolute',
-        top: '35%',
-        right: '-45px', // Adjust the distance from the edge
-        zIndex: 1,
-        width: '50px', // Increase arrow width
-        height: '50px', // Increase arrow height
-        transform: 'translateY(-50%)',
-        fontSize: '34px ', // Font size for text (optional)
-        textAlign: 'center', // Center text horizontally (optional)
-      }}
-    >
-      {'>'}
-    </div>
+    <button type="button" onClick={onClick} className="custom-next">
+      <i className="fas fa-chevron-right"></i>
+    </button>
   );
 };
 
@@ -75,9 +42,10 @@ const Blog: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      setShowArrows(window.innerWidth > 576); // Adjust the breakpoint as needed
+      setShowArrows(window.innerWidth > 576);
     };
 
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -103,24 +71,27 @@ const Blog: React.FC = () => {
         },
       },
     ],
-    prevArrow: showArrows ? <CustomPrevArrow /> : undefined,
-    nextArrow: showArrows ? <CustomNextArrow /> : undefined,
+    arrows: showArrows,
+    prevArrow: <PrevArrow />, 
+    nextArrow: <NextArrow />,
   };
 
   return (
     <div className="container mt-5">
-      <div className="row">
-        <Title title={"BLOG"} />
+      <div className="container text-center mb-4">
+        <Title title="BLOG" />
       </div>
-      <div className="row mt-5 gx-4">
+      <div className="container mt-5">
         <Slider {...settings}>
           {BlogData.map((blog, index) => (
-            <BlogItem key={index} img={blog.img} creator={blog.creator} date={blog.date} title={blog.title} />
+            <div key={index} className="">
+              <BlogItem img={blog.img} creator={blog.creator} date={blog.date} title={blog.title} />
+            </div>
           ))}
         </Slider>
       </div>
     </div>
   );
-}
+};
 
 export default Blog;

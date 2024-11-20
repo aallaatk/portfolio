@@ -10,7 +10,7 @@ import Projects from './Sections/Projects';
 import Testimonials from './Sections/Testimonials';
 import Main from './Sections/Main';
 import Footer from "./Sections/Footer";
-import Skills from './Sections/Skills';
+// import Skills from './Sections/Skills';
 import Resume from './Sections/Resume';
 
 const App: React.FC = () => {
@@ -109,9 +109,9 @@ const App: React.FC = () => {
       <div ref={sectionRefs.services} style={{ opacity: 0, transition: 'opacity 0.5s ease-in-out' }}>
         <Services />
       </div>
-      <div ref={sectionRefs.skills} style={{ opacity: 0, transition: 'opacity 0.5s ease-in-out' }}>
+      {/* <div ref={sectionRefs.skills} style={{ opacity: 0, transition: 'opacity 0.5s ease-in-out' }}>
         <Skills />
-      </div>
+      </div> */}
       <div ref={sectionRefs.resume} style={{ opacity: 0, transition: 'opacity 0.5s ease-in-out' }}>
         <Resume />
       </div>

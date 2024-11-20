@@ -14,12 +14,12 @@ const servicesData = [
 function Services() {
   return (
     <div className="container mt-5">
-      <div className="row">
+      <div className="container">
         <Title title={"SERVICES"} />
       </div>
       <div className="row mt-5 gx-4">
         {servicesData.map((i, index) => (
-          <div className="col-md-4 mt-4" key={index}>
+          <div className=" col-md-4 mt-4" key={index}>
             <ServiceItem title={i.title} para={i.para} img={i.img} />
           </div>
         ))}

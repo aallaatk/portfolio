@@ -1,3 +1,8 @@
+* {
+  box-sizing: border-box;
+ 
+}
+
 //color varibales
 $main-bg-color:#070d1b;
 $headers-color:#0a101e;
@@ -97,10 +102,6 @@ body{
 }
 
 
-@keyframes move-water {
-  0% { background-position: 0 0; }
-  100% { background-position: 100% 0; }
-}
 
 
 /* resume section styling */
@@ -120,14 +121,7 @@ p{
     font-size: 1.1em;
 
 }
-.row {
-    display: flex;
-        justify-content: space-between;
-    p {
-        padding-right: 10px; 
-     
-    }
-}
+
 .info-item {
   display: flex;
   font-size: 1.2em;
@@ -151,6 +145,10 @@ p{
     outline: none;
     padding: 10px;
     width: 150px;
+    &:hover{
+      background-color: $secondary-color;
+      color: $third-color !important;
+    }
 }
 
 
@@ -460,6 +458,34 @@ p{
   color:rgba(255, 255, 255, 0.75) ;
  }
 }
+.custom-prev, .custom-next {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  &:hover{
+    color: $third-color;
+  }
+}
+
+.custom-prev {
+  left: -35px; /* Adjust position to the left */
+}
+
+.custom-next {
+  right: -35px; /* Adjust position to the right */
+}
+
+.custom-prev:hover, .custom-next:hover {
+  background-color: rgba(0, 0, 0, 0.7); /* Darker background on hover */
+}
+
 
 
 //projects section
@@ -558,8 +584,8 @@ footer{
 }
 .test {
   position: relative;
-  height: fit-content; /* Establishes a positioning context for the overlay */
-  background: url('./src/assets/bgg.jpg') center fixed;
+   /* Establishes a positioning context for the overlay */
+  background: url('./src/assets/bg.jpg') center fixed;
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: scroll; /* This property is fine as-is */
@@ -582,33 +608,177 @@ footer{
   position: relative; /* Ensures child elements are positioned above the overlay */
   z-index: 2; /* Places child elements above the overlay */
 }
-.ani-container {
-  position: relative;
-  display: inline-block;
+
+
+
+
+
+
+
+
+
+.intro-text {
+  font-size: 1.5rem; // Smaller default font size for better control on various screens
+  text-align: center;
+  line-height: 1.2;
+
+  // Adjust font size for different screen sizes
+  @media (max-width: 992px) {  // Medium screens
+    font-size: 1.25rem;
+  }
+
+  @media (max-width: 768px) {  // Small screens like tablets
+    font-size: 1rem;
+  }
+
+  @media (max-width: 576px) {  // Extra small screens like phones
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 400px) {  // Very small screens
+    font-size: 0.8rem;
+  }
+  
 }
 
 .static-text {
-  display: inline-block;
-  font-size: 1.5rem; /* Adjust as needed */
   font-weight: bold;
+  color: $third-color;
+  margin-left: 0.5rem;
+}
+
+.ani-container {
+  display: inline-block;
+  margin-left: 0.5rem;
+  position: relative;
 }
 
 .ani-text {
+  font-weight: 600;
+  color: $third-color;
   display: inline-block;
-  margin-left: 8px; /* Add space between static and animated text */
-  opacity: 0;
-  transition: opacity 0.5s ease; /* Smooth transition for fade */
+  white-space: nowrap;
+  overflow: hidden;
+  
 }
 
-.ani-text.show {
-  opacity: 1; /* Fade in when showing */
+.cursor {
+  display: inline-block;
+
+  animation: blink 0.7s infinite;
 }
 
-.ani-text.fade-out {
-  opacity: 0; /* Fade out */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .intro-text {
+    font-size: clamp(1.2rem, 5vw, 2rem); // Smaller on mobile
+  }
+
+  .ani-text {
+    font-size: clamp(1.2rem, 5vw, 2rem); // Keep animation size consistent
+  }
+}
+/* social links styling  */
+#round-social {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color:transparent;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; 
+  border: 2px solid $fadedwhite-color;
+  position: relative;// Ensure that the text is hidden when not hovered
+
+  a {
+    display: flex; // Make sure the icon and text are in a row
+    align-items: center; // Aligns the icon and text vertically
+    justify-content: center;
+    color: #ffffff;
+    font-size: 24px;
+    gap: 10px; // Add space between icon and text
+    transition: color 0.3s ease-in-out;
+    white-space: nowrap; // Prevent the text from wrapping
+    text-decoration: none; // Ensure there is no underline on the text
+
+    .social-name {
+      opacity: 0;
+      max-width: 0;
+      overflow: hidden;
+      transition: max-width 0.3s ease, opacity 0.3s ease;
+    }
+  }
+
+  &:hover {
+    width: 150px; // Expands to cylinder shape
+    border-radius: 50px;
+
+    a {
+      color: yellow; // Change icon and text color
+
+      .social-name {
+        opacity: 1; // Makes the name visible
+        max-width: 100px; // Expands to show text
+      }
+    }
+  }
+}
+/* resume bar styling */
+// Resume.scss
+
+.education-bar {
+  position: relative;
+  margin-left: 20px;
+  border-left: 2px solid $fadedwhite-color;
+  height: 100%;
+  padding-left: 10px;
+
+  .education-item {
+    position: relative;
+    padding-left: 30px; // Spacing from the bar
+
+    &:hover .dot {
+      background-color: #fec544;
+    }
+  }
+
+  .dot {
+    position: absolute;
+    left: -15px; // Position dot centered on the line
+    width: 10px;
+    height: 10px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+
+    &.hovered {
+      background-color: #fec544;
+    }
+  }
 }
 
 
+.info-value::before {
+  content: ":";
+  margin-right: 5px; /* Adjust spacing as needed */
+}
+.info-title{
+  padding: 0;
+  margin: 2px !important;
+}
 
+.custom-arrow {
+  display: none; /* Hide arrows by default */
+}
 
-
+@media (min-width: 576px) {
+  .custom-arrow {
+    display: block; /* Show arrows on larger screens */
+  }
+}

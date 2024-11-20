@@ -1,37 +1,35 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useEffect, useRef } from 'react';
+import Typed from 'typed.js';
 
 const Main: React.FC = () => {
-  const [displayTextIndex, setDisplayTextIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
+  // Create a ref to access the DOM element where the typing effect will be applied
+  const typedElement = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setDisplayTextIndex((prevIndex) => (prevIndex + 1) % 2); // Cycle between 0 and 1 for web/mobile developer
-        setIsAnimating(false);
-      }, 500); // Match with the fade-out duration
-    }, 3000); // Change text every 3 seconds
+    // Create an instance of Typed.js
+    const typed = new Typed(typedElement.current, {
+      strings: [ 'Web Developer', 'Mobile Developer'], // Strings to type out
+      typeSpeed: 50,  // Speed of typing
+      backSpeed: 30,  // Speed of backspacing
+      backDelay: 1500, // Delay before starting to backspace
+      startDelay: 500, // Delay before starting to type
+      loop: true,      // Whether to loop the typing animation
+      showCursor: true, // Whether to display a blinking cursor
+    });
 
-    return () => clearInterval(interval); // Cleanup interval on unmount
+    // Cleanup function to destroy Typed instance when component unmounts
+    return () => {
+      typed.destroy();
+    };
   }, []);
-
-  const texts = ['Web Developer', 'Mobile Developer']; // Alternating texts
 
   return (
     <section className="container-fluid p-3" id="main">
-      <div className="row" style={{ display: 'inline-block' }}>
-        <p>Hi, I'm <span>A</span>la<span>S</span>leimi</p>
-        <div className="ani-container">
-          <p className="static-text">Full Stack</p> {/* Displayed statically */}
-          <p
-            className={`ani-text ${isAnimating ? 'fade-out' : 'show'}`}
-            style={{ '--text-length': texts[displayTextIndex].length } as React.CSSProperties} // Dynamic text length
-          >
-            {texts[displayTextIndex]} {/* Alternating text */}
-          </p>
-        </div>
+      <div className="row">
+        <p className="intro-text">
+          Hi, I'm <span>A</span>la <span>S</span>leimi <br />
+          <span ref={typedElement}></span>
+        </p>
       </div>
     </section>
   );

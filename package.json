@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "react-cursor-follow": "^2.0.0"
+    "react-cursor-follow": "^2.0.0",
+    "typed.js": "^2.1.0"
   }
 }

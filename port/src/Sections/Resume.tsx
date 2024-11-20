@@ -11,12 +11,11 @@ function Resume() {
       let currentSection = '';
 
       sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 50) {
-          currentSection = section.getAttribute('id');
+        const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+        if (window.pageYOffset >= sectionTop - 50) {
+          currentSection = section.getAttribute('id') || '';
         }
       });
-
       setActiveSection(currentSection);
     };
 
@@ -39,6 +38,7 @@ function Resume() {
                     <h2 style={{color:'white'}}>Education</h2>
                 </div>
                 <div className="experience mt-4">
+                <div className="education-bar mt-4">
                 <EducationItem 
                       title={'Master in E-Business'} 
                       duration={'Current'} 
@@ -58,6 +58,7 @@ function Resume() {
                       description={'Completed a Bachelor of Computer Science at Lycee Hamida Bakir, gaining foundational knowledge in computer science and related disciplines.'} 
                     />
                 </div>
+                </div>
             </div>
             <div className="col-sm-6 mt-3">
                 <div className="d-flex align-items-center section" id="certifications">
@@ -65,6 +66,7 @@ function Resume() {
                     <h2 style={{color:'white'}}>Certifications</h2>
                 </div>
                 <div className="education mt-4">
+                      <div className="education-bar mt-4">
                     <EducationItem 
                       title="The Fundamentals of Digital Marketing" 
                       institution="by Google Digital Garage" 
@@ -85,6 +87,7 @@ function Resume() {
                       institution="by Google Analytics Academy" 
                       description="An advanced course on leveraging Google Analytics for deeper insights and data-driven decision making."
                     />
+                </div>
                 </div>
             </div>
         </div>
