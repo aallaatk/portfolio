@@ -169,11 +169,12 @@ p {
   color: rgba(255, 255, 255, 0.622);
 }
 
-/* More specific selector to override Bootstrap styles */
+/* Styling for input and textarea */
 input, textarea {
   padding: 15px !important;
-  border-color: 1px solid rgba(255, 255, 255, 0.098) !important;
+  border: 1px solid rgba(255, 255, 255, 0.098) !important;
   background-color: #101624 !important;
+  color: rgba(255, 255, 255, 0.622); /* Initial text color */
 }
 input::-moz-placeholder, textarea::-moz-placeholder {
   color: rgba(255, 255, 255, 0.287) !important;
@@ -181,12 +182,14 @@ input::-moz-placeholder, textarea::-moz-placeholder {
 input::placeholder, textarea::placeholder {
   color: rgba(255, 255, 255, 0.287) !important;
 }
-
-.form-control.input-focus:focus {
+input:focus, textarea:focus {
   outline: 3px solid #fec544 !important;
   box-shadow: 0 0 0 2px rgba(255, 255, 0, 0.5) !important;
   border: none !important;
-  color: white;
+  color: white !important; /* Text color while focused */
+}
+input:valid, textarea:valid {
+  color: white !important; /* Text color after input is entered */
 }
 
 /* title  componant styling*/
@@ -216,6 +219,7 @@ input::placeholder, textarea::placeholder {
 #service-item {
   background-color: #101624;
   border: 1px solid rgba(255, 255, 255, 0.172);
+  border-radius: 25px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -238,6 +242,7 @@ input::placeholder, textarea::placeholder {
 #service-item #service-item:hover p,
 #service-item #service-item:hover span {
   color: #fec544;
+  border-color: #fec544;
 }
 #service-item #service-img {
   display: flex;

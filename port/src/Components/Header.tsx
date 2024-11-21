@@ -34,7 +34,7 @@ const Header: React.FC<HeaderProps> = ({ aboutRef, resumeRef, portfolioRef, blog
   return (
     <nav className={`navbar navbar-expand-lg sticky-top ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container">
-        <img src={logo} className="navbar-brand" style={{ width: "50px", height: "10%" }} alt="logo" /> 
+        <img src={logo} className="navbar-brand" style={{ width: "50px", height: "100%" }} alt="logo" /> 
         <p className='h1' style={{ color: 'white' }}>
           <span style={{ color: '#fec544' }}>A</span>la
         </p>
