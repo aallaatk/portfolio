@@ -42,7 +42,7 @@ interface ContactProps {
             </div>
             <div className="container">
                 {/* Social media Links */}
-              <p style={{fontSize:'22px'}}>Visit my social profile and get connected</p>
+              <p style={{fontSize:'22px'}} className='mb-3'>Visit my social profile and get connected</p>
               <div className="row d-flex justify-content-between p-0">
   <div className="col-1 d-flex justify-content-center align-items-center" id="round-social">
     <a href="https://www.facebook.com/marwen.fatmi.18/" className="social-link">

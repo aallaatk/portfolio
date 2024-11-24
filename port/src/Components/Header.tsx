@@ -16,8 +16,16 @@ const Header: React.FC<HeaderProps> = ({ aboutRef, resumeRef, portfolioRef, blog
   const scrollToSection = (ref: RefObject<HTMLDivElement>, linkName: string) => {
     ref.current?.scrollIntoView({ behavior: 'smooth' });
     setActiveLink(linkName);
+  
+    // Collapse the navbar menu on mobile after navigation
+    const navbarToggler = document.querySelector('.navbar-toggler') as HTMLElement;
+    const navbarCollapse = document.querySelector('.navbar-collapse') as HTMLElement;
+  
+    if (navbarToggler && navbarCollapse.classList.contains('show')) {
+      navbarToggler.click(); // Simulates toggler click to close menu
+    }
   };
-
+  
   useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -32,9 +40,10 @@ const Header: React.FC<HeaderProps> = ({ aboutRef, resumeRef, portfolioRef, blog
   }, []);
 
   return (
-    <nav className={`navbar navbar-expand-lg sticky-top ${isScrolled ? 'scrolled' : ''}`}>
+   
+    <nav className={`navbar navbar-expand-lg sticky-top ${isScrolled ? 'scrolled' : ''} p-2`}>
       <div className="container">
-        <img src={logo} className="navbar-brand" style={{ width: "50px", height: "100%" }} alt="logo" /> 
+        <img src={logo} className="navbar-brand" style={{ width: "50px", height: "5Opx" }} alt="logo" /> 
         <p className='h1' style={{ color: 'white' }}>
           <span style={{ color: '#fec544' }}>A</span>la
         </p>
@@ -96,6 +105,7 @@ const Header: React.FC<HeaderProps> = ({ aboutRef, resumeRef, portfolioRef, blog
         </div>
       </div>
     </nav>
+ 
   );
 };
 

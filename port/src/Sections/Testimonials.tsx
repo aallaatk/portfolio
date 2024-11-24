@@ -7,19 +7,19 @@ const testimonialsData = [
     img: 'https://via.placeholder.com/100',
     name: 'Richard Miles',
     title: 'Chairman',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum.',
+    quote: 'Outstanding Work!',
   },
   {
     img: 'https://via.placeholder.com/100',
     name: 'Vesta Shufelt',
     title: 'Executive Director',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum.',
+    quote: 'Highly Skilled and Reliable!',
   },
   {
     img: 'https://via.placeholder.com/100',
     name: 'Joseph Alves',
     title: 'Managing Director',
-    quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vitae eros eget tellus tristique bibendum.',
+    quote: 'Exceptional Developer!',
   },
 ];
 

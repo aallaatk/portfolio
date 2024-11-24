@@ -4,6 +4,9 @@
 
 body {
   font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 #root {
@@ -41,16 +44,16 @@ body {
 }
 /* styles.css */
 .navbar {
-  position: fixed;
+  background-color: transparent;
+  height: auto;
+  position: sticky;
   top: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: transparent; /* Initial transparent background */
-  transition: background-color 0.3s ease; /* Smooth transition for background color change */
+  z-index: 1030;
+  transition: background-color 0.3s ease-in-out;
 }
 
 .navbar.scrolled {
-  background-color: #0a101e; /* Solid background color when scrolled */
+  background-color: #0a101e; /* Solid background color */
 }
 
 /* styles.css */
